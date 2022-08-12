@@ -95,6 +95,15 @@
 
 
     <script type="text/javascript">
+        function getReason(){
+            console.log("got reason");
+            const fs = require('fs');
+            fs.readFile("listOfReasons.txt", (err, data) => {
+                if (err) throw err;
+                console.log(data.toString());
+            })
+        }
+
         // only able to select one checkbox at a time
         $(document).ready(function(){
             $('input:checkbox').click(function() {
@@ -103,9 +112,6 @@
         });
     </script>
 
-    <script type="text/javascript" src="file.js">
-        // soemtihng
-    </script>
 
     <body>
         
@@ -165,7 +171,7 @@
             </div> 
         </form>
 
-        <input type="button" onclick="hello()">Click Me</input> 
+        <input type="button" onclick="getReason()">Click Me</input> 
         <span id="reason"></span>   
 
         <!-- Option 1: Bootstrap Bundle with Popper -->
